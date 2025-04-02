@@ -62,7 +62,7 @@ class LoginScreen extends StatelessWidget {
                         return null;
                       },
                     ),
-                    SizedBox(height: 30.h),
+                    SizedBox(height: 20.h),
                     PasswordField(
                       controller: passwordController,
                       validator: (value) {

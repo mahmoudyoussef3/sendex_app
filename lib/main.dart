@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
         ),
         onGenerateRoute: AppRouter().generateRoutes,
         debugShowCheckedModeBanner: false,
-        initialRoute: isLoggedIn ? Strings.ordersScreen : Strings.loginScreen,
+        initialRoute: isLoggedIn ? Strings.loginScreen : Strings.loginScreen,
       ),
     );
   }
