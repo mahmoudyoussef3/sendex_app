@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sendex_app/Features/Orders/domain/entities/order_entity.dart';
 import 'package:sendex_app/Features/Orders/presentation/screens/order_details_screen.dart';
 
-import '../../../../../core/utils/strings.dart';
 
 class ShowOrderButton extends StatelessWidget {
   const ShowOrderButton({super.key, required this.order});
@@ -20,11 +20,11 @@ class ShowOrderButton extends StatelessWidget {
           )),
 
       child: Container(
-        width: 90,
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 5),
+        width: 90.w,
+        padding:  EdgeInsets.symmetric(horizontal: 12.w, vertical: 5.h),
         decoration: BoxDecoration(
           color: Colors.indigo,
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(8.r),
         ),
         child: const Center(
           child: Text('Details',

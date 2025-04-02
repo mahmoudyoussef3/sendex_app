@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 class OrderDetails extends StatelessWidget {
   final String customerName;
   final String address;
@@ -17,10 +19,10 @@ class OrderDetails extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(customerName,
-            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
-        const SizedBox(height: 5),
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18.sp)),
+        SizedBox(height: 5.h),
         _buildInfoRow(Icons.location_on, address),
-        const SizedBox(height: 5),
+        SizedBox(height: 5.h),
         _buildInfoRow(Icons.shopping_cart, product),
       ],
     );
@@ -30,11 +32,11 @@ class OrderDetails extends StatelessWidget {
     return Row(
       children: [
         Icon(icon, size: 18, color: Colors.grey),
-        const SizedBox(width: 5),
+        SizedBox(width: 5.w),
         Expanded(
           child: Text(
             text,
-            style: const TextStyle(fontSize: 14, color: Colors.grey),
+            style: TextStyle(fontSize: 14.sp, color: Colors.grey),
             overflow: TextOverflow.ellipsis,
           ),
         ),

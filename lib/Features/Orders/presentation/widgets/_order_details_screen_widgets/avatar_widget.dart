@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AvatarWidget extends StatelessWidget {
   final String avatarUrl;
@@ -16,7 +17,7 @@ class AvatarWidget extends StatelessWidget {
         ],
       ),
       child: CircleAvatar(
-        radius: 50,
+        radius: 50.r,
         backgroundColor: Colors.grey.shade300,
         backgroundImage: CachedNetworkImageProvider(avatarUrl),
       ),

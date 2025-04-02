@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sendex_app/Features/Auth/presentation/widgets/forget_password_and_signup_section.dart';
 import '../../../../core/utils/strings.dart';
 import '../widgets/email_field.dart';
@@ -24,7 +25,9 @@ class LoginScreen extends StatelessWidget {
           listener: (context, state) {
             if (state is LoginSuccess) {
               ScaffoldMessenger.of(context)
-                  .showSnackBar(SnackBar(content: Text(state.message)));
+                  .showSnackBar(SnackBar(
+                  backgroundColor: Colors.green,
+                  content: Text(state.message,style: TextStyle(color: Colors.white),)));
               Navigator.pushReplacementNamed(context, Strings.ordersScreen);
             } else if (state is LoginError) {
               ScaffoldMessenger.of(context)
@@ -34,19 +37,19 @@ class LoginScreen extends StatelessWidget {
           child: Form(
             key: formKey,
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30.0),
+              padding:  EdgeInsets.symmetric(horizontal: 30.0.w),
               child: SingleChildScrollView(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    SizedBox(height: 150),
+                    SizedBox(height: 150.h),
                     Text(
                       'Welcome Back!',
                       style:
                           TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                     ),
-                    SizedBox(height: 80),
+                    SizedBox(height: 80.h),
                     EmailField(
                       controller: emailController,
                       validator: (value) {
@@ -59,7 +62,7 @@ class LoginScreen extends StatelessWidget {
                         return null;
                       },
                     ),
-                    SizedBox(height: 30),
+                    SizedBox(height: 30.h),
                     PasswordField(
                       controller: passwordController,
                       validator: (value) {
@@ -71,7 +74,7 @@ class LoginScreen extends StatelessWidget {
                         return null;
                       },
                     ),
-                    SizedBox(height: 50),
+                    SizedBox(height: 50.h),
                     BlocBuilder<LoginCubit, LoginState>(
                       builder: (context, state) {
                         return LoginButton(

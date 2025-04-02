@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_animate/flutter_animate.dart';  // Import the animate package
 import '../cubit/order_cubit.dart';
 import '../widgets/_orders_screen_widgets/order_card.dart';
 
@@ -31,17 +33,24 @@ class _OrdersScreenState extends State<OrdersScreen> {
             } else if (state is OrdersLoaded) {
               return ListView.builder(
                 itemCount: state.orders.length,
-                itemBuilder: (context, index) =>
-                    OrderCard(order: state.orders[index]),
+                itemBuilder: (context, index) {
+                  return OrderCard(order: state.orders[index])
+                      .animate()
+                      .fadeIn(duration: 500.ms, curve: Curves.easeIn)
+                      .move(delay: Duration(milliseconds: index * 250),
+                    duration: 800.ms,
+                    curve: Curves.easeInOut,
+                  );
+                },
               );
             } else if (state is OrdersError) {
               return Center(
                   child: Text(state.message,
-                      style: const TextStyle(color: Colors.red, fontSize: 16)));
+                      style: TextStyle(color: Colors.red, fontSize: 16.sp)));
             }
-            return const Center(
+            return Center(
                 child: Text('No orders available',
-                    style: TextStyle(fontSize: 16)));
+                    style: TextStyle(fontSize: 16.sp)));
           },
         ),
       ),
@@ -51,9 +60,11 @@ class _OrdersScreenState extends State<OrdersScreen> {
   AppBar _buildAppBar() {
     return AppBar(
       foregroundColor: Colors.transparent,
-      title: const Text('Orders',
+      title: Text('Orders',
           style: TextStyle(
-              fontSize: 22, fontWeight: FontWeight.bold, color: Colors.white)),
+              fontSize: 22.sp,
+              fontWeight: FontWeight.bold,
+              color: Colors.white)),
       centerTitle: true,
       backgroundColor: Colors.indigo.shade700,
       elevation: 2,

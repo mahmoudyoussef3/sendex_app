@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomerInfoWidget extends StatelessWidget {
   final String firstName;
@@ -18,12 +19,12 @@ class CustomerInfoWidget extends StatelessWidget {
       children: [
         Text(
           '$firstName $lastName',
-          style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
+          style:  TextStyle(fontSize: 24.sp, fontWeight: FontWeight.w600),
         ),
         const SizedBox(height: 8),
         Text(
           email,
-          style: const TextStyle(fontSize: 16, color: Colors.grey),
+          style:  TextStyle(fontSize: 16.sp, color: Colors.grey),
         ),
       ],
     );

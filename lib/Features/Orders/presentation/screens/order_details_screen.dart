@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sendex_app/Features/Orders/domain/entities/order_entity.dart';
+import 'package:flutter_animate/flutter_animate.dart'; // Import animation package
 import '../widgets/_order_details_screen_widgets/avatar_widget.dart';
 import '../widgets/_order_details_screen_widgets/customer_info_widget.dart';
 import '../widgets/_order_details_screen_widgets/detail_card_widget.dart';
@@ -42,7 +44,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
     return Scaffold(
       appBar: AppBar(
         foregroundColor: Colors.white,
-        title: const Text('Order Details', style: _appBarTextStyle),
+        title: Text('Order Details', style: _appBarTextStyle),
         backgroundColor: Colors.indigo.shade700,
         elevation: 2,
         centerTitle: true,
@@ -52,32 +54,53 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            AvatarWidget(avatarUrl: widget.orderEntity.avatar),
-            const SizedBox(height: 16),
+            AvatarWidget(avatarUrl: widget.orderEntity.avatar)
+                .animate()
+                .fadeIn(duration: 600.ms)
+                .move(
+                    delay: Duration(milliseconds: 1000),
+                    duration: 800.ms,
+                    curve: Curves.easeOut),
+            SizedBox(height: 16.h),
             CustomerInfoWidget(
               firstName: widget.orderEntity.customerFirstName,
               lastName: widget.orderEntity.customerLastName,
               email: widget.orderEntity.email,
-            ),
-            const SizedBox(height: 20),
+            )
+                .animate()
+                .fadeIn(duration: 700.ms)
+                .move(delay: Duration(milliseconds: 1000), duration: 900.ms),
+            SizedBox(height: 20.h),
             DetailCardWidget(
               icon: Icons.location_on,
               label: 'Address',
               value: widget.orderEntity.address,
-            ),
+            )
+                .animate()
+                .fadeIn(duration: 700.ms)
+                .move(delay: Duration(milliseconds: 1000), duration: 900.ms),
             DetailCardWidget(
               icon: Icons.shopping_cart,
               label: 'Product',
               value: widget.orderEntity.product,
-            ),
+            )
+                .animate()
+                .fadeIn(duration: 800.ms)
+                .move(delay: Duration(milliseconds: 1000), duration: 1000.ms),
             DetailCardWidget(
               icon: Icons.attach_money,
               label: 'Price',
               value: '\$${widget.orderEntity.orderPrice.toStringAsFixed(2)}',
-            ),
-            const SizedBox(height: 30),
-            StatusBadge(status: _currentStatus),
-            const SizedBox(height: 16),
+            )
+                .animate()
+                .fadeIn(duration: 900.ms)
+                .move(delay: Duration(milliseconds: 1000), duration: 1100.ms),
+            SizedBox(height: 30.h),
+            StatusBadge(status: _currentStatus)
+                .animate()
+                .fadeIn(duration: 1000.ms)
+                .move(delay: Duration(milliseconds: 1000), duration: 1200.ms),
+            SizedBox(height: 16.h),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -86,14 +109,14 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                   color: Colors.blue,
                   isSelected: _currentStatus == "Shipped",
                   onPressed: () => _updateStatus("Shipped"),
-                ),
-                const SizedBox(width: 16),
+                ).animate().scale(duration: 400.ms, curve: Curves.easeInOut),
+                SizedBox(width: 16.w),
                 StatusButtonWidget(
                   status: "Delivered",
                   color: Colors.green,
                   isSelected: _currentStatus == "Delivered",
                   onPressed: () => _updateStatus("Delivered"),
-                ),
+                ).animate().scale(duration: 400.ms, curve: Curves.easeInOut),
               ],
             ),
           ],
@@ -103,8 +126,8 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
   }
 }
 
-const TextStyle _appBarTextStyle = TextStyle(
-  fontSize: 22,
+TextStyle _appBarTextStyle = TextStyle(
+  fontSize: 22.sp,
   fontWeight: FontWeight.bold,
   color: Colors.white,
 );

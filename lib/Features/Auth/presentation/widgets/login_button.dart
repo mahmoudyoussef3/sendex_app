@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoginButton extends StatelessWidget {
   final VoidCallback onPressed;
@@ -13,11 +14,11 @@ class LoginButton extends StatelessWidget {
       onPressed: isLoading ? null : onPressed,
       style: ElevatedButton.styleFrom(
         backgroundColor: Colors.blue,
-        padding: EdgeInsets.symmetric(vertical: 16),
+        padding: EdgeInsets.symmetric(vertical: 16.h),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(10.r),
         ),
-        minimumSize: Size(double.infinity, 50),
+        minimumSize: Size(double.infinity, 50.h),
       ),
       child: isLoading
           ? CircularProgressIndicator(
@@ -27,7 +28,7 @@ class LoginButton extends StatelessWidget {
               style: TextStyle(
                   color: Colors.white,
                   letterSpacing: 2,
-                  fontSize: 24,
+                  fontSize: 24.sp,
                   fontWeight: FontWeight.bold)),
     );
   }

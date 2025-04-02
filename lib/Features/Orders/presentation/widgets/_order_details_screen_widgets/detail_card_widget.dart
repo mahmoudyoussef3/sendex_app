@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DetailCardWidget extends StatelessWidget {
   final IconData icon;
@@ -17,21 +18,21 @@ class DetailCardWidget extends StatelessWidget {
     return Card(
       color: Colors.white,
       elevation: 4,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      margin: const EdgeInsets.symmetric(vertical: 8),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
+      margin:  EdgeInsets.symmetric(vertical: 8.h),
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
+        padding:  EdgeInsets.symmetric(vertical: 16.h, horizontal: 20.w),
         child: Row(
           children: [
             Icon(icon, size: 30, color: Colors.indigo.shade700),
-            const SizedBox(width: 16),
+             SizedBox(width: 16.w),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(label, style: const TextStyle(fontSize: 14, color: Colors.grey)),
-                  const SizedBox(height: 4),
-                  Text(value, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                  Text(label, style:  TextStyle(fontSize: 14.sp, color: Colors.grey)),
+                   SizedBox(height: 4.h),
+                  Text(value, style:  TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold)),
                 ],
               ),
             ),

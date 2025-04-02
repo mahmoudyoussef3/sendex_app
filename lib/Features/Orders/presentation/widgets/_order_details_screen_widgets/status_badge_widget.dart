@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class StatusBadge extends StatelessWidget {
   final String status;
@@ -8,10 +9,10 @@ class StatusBadge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+      padding:  EdgeInsets.symmetric(horizontal: 24.h, vertical: 12.w),
       decoration: BoxDecoration(
         color: _getStatusColor(status),
-        borderRadius: BorderRadius.circular(30),
+        borderRadius: BorderRadius.circular(30.r),
         boxShadow: [
           BoxShadow(
               color: _getStatusColor(status).withOpacity(0.3),
@@ -21,7 +22,7 @@ class StatusBadge extends StatelessWidget {
       ),
       child: Text(
         status.toUpperCase(),
-        style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18),
+        style:  TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18.sp),
       ),
     );
   }

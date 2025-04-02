@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class StatusButtonWidget extends StatelessWidget {
   final String status;
@@ -20,13 +21,13 @@ class StatusButtonWidget extends StatelessWidget {
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         backgroundColor: isSelected ? color.withOpacity(1) : color,
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+        padding:  EdgeInsets.symmetric(horizontal: 20.w, vertical: 12.h),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.r)),
         elevation: isSelected ? 6 : 2,
       ),
       child: Text(
         "Mark as $status",
-        style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
+        style:  TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold, color: Colors.white),
       ),
     );
   }

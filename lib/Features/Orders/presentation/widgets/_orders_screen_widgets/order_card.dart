@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../domain/entities/order_entity.dart';
 import 'order_avatar.dart';
 import 'order_details_content.dart';
@@ -13,15 +14,15 @@ class OrderCard extends StatelessWidget {
     return Card(
       color: Colors.white,
       elevation: 4,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      margin: const EdgeInsets.symmetric(vertical: 8),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
+      margin:  EdgeInsets.symmetric(vertical: 8.h),
       child: Padding(
         padding: const EdgeInsets.all(12.0),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             OrderAvatar(imageUrl: order.avatar),
-            const SizedBox(width: 12),
+             SizedBox(width: 12.w),
             Expanded(
               child: OrderDetails(
                 customerName:
